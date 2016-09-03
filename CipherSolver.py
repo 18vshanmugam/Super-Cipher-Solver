@@ -21,6 +21,13 @@ elif len(sys.argv) == 2:
 
         If you notice any bugs or have any suggestions, email us at scsdevteam@gmail.com
         """)
+    else:
+        if input("Would you like to run the full suite of tests on this input? (Y/N)") == "Y":
+            print("Running Full Suite...")
+            s.try_solve(sys.argv[1], True, False, False, False)
+        else:
+            print("""You can run specific methods by using command line flags. Call this program with 'Help' for more
+            information""")
 else:
     print("reading input...")
     file_input = False
@@ -49,7 +56,7 @@ else:
                     s.try_solve(file.read(),  allTests, caesar, RSA, base64)
             else:
                 s.try_solve(arg,  allTests, caesar, RSA, base64)
-print (ord("Z"))
+print(ord("Z"))
 print(ord("z"))
 # elif len(sys.argv) == 3:
 #     if sys.argv[1] == 'file':

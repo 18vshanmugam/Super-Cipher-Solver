@@ -9,4 +9,4 @@ def solveCaesarCipher(text):
                     newStr += chr(ord(l) + i) if ord(l) + i <= ord("z") else chr(ord(l)+i-26)
                 else:
                     newStr += chr(ord(l) + i) if ord(l) + i <= ord("Z") else chr(ord(l)+i-26)
-        print(newStr)
+        print(newStr + "\n")
