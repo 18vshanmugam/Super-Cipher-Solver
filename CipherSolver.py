@@ -17,14 +17,16 @@ elif len(sys.argv) == 2:
         -c or -caesar : Test the input against a Caesar Cipher only\n
         -r or -rsa : Run certain RSA attacks against the input. See more help with -rhelp or -rsahelp\n
         -b or -b64 or -base64 : Decode the string as base64 only
-
+        -e or -example : See an example of a caesar shift being solved
         IMPORTANT : Multi-word text should be surrounded by quotes as such "I have too many words"
 
         If you notice any bugs or have any suggestions, email us at scsdevteam@gmail.com
         """)
-    elif sys.argv[1] == 'rhelp' or sys.arv[1] == 'rsahelp':
+    elif sys.argv[1] == 'rhelp' or sys.argv[1] == 'rsahelp':
         print("""
         RSA is currently not functional. Check back later!""")
+    elif sys.argv[1] == "-e" or sys.argv[1] == "-example":
+        s.try_solve("Fhcre Pvcure Fbyire vf Fhcre Pbby!", False, True, False, False)
 
     else:  # 1 Arg, text to solve
         if input("Would you like to run the full suite of tests on this input? (Y/N)") == "Y":
@@ -55,8 +57,9 @@ else:  # > 1 args, some are flags
             base64 = True
         else:
             if file_input:
+                print("Attempting to read file " + arg + "...")
                 with open(arg, "r") as file:
-                    s.try_solve(file.read(),  allTests, caesar, RSA, base64)
+                    s.try_solve(file.read().strip(),  allTests, caesar, RSA, base64)
             else:
-                s.try_solve(arg,  allTests, caesar, RSA, base64)
+                s.try_solve(arg.strip(),  allTests, caesar, RSA, base64)
 
