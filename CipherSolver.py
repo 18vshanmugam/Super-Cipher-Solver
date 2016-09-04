@@ -42,6 +42,7 @@ else:  # > 1 args, some are flags
     caesar = False
     RSA = False
     base64 = False
+    atbash = False
     # other ciphers here
 
     for arg in sys.argv:
@@ -55,11 +56,13 @@ else:  # > 1 args, some are flags
             RSA = True
         elif arg.lower() == "-b" or arg.lower() == "-b64" or arg.lower() == "-base64":
             base64 = True
+        elif arg.lower() == "-at" or arg.lower() -- "-atbash":
+            atbash = True
         else:
             if file_input:
                 print("Attempting to read file " + arg + "...")
                 with open(arg, "r") as file:
-                    s.try_solve(file.read().strip(),  allTests, caesar, RSA, base64)
+                    s.try_solve(file.read().strip(),  allTests, caesar, RSA, base64, atbash)
             else:
-                s.try_solve(arg.strip(),  allTests, caesar, RSA, base64)
+                s.try_solve(arg.strip(),  allTests, caesar, RSA, base64, atbash)
 

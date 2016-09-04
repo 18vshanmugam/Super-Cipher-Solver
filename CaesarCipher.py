@@ -34,7 +34,9 @@ def solveCaesarCipher(text):
 
         if correctness > 0:
             possibleAnswers.append(newStr)
-    print("\tSCS Detected Likely Answers: \n ________________________________________________")
+    print("Caesar Cipher Detected Likely Answers: \n________________________________________________")
     for answer in possibleAnswers:
         print("\t" + answer)
-    print(" ________________________________________________\n")
+    print("________________________________________________\n")
+    if len(possibleAnswers) != 0:
+        return possibleAnswers
