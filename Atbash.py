@@ -8,10 +8,10 @@ def solveAtbashCipher(text):
     print("\tRunning Atbash Cipher on input string " + text + "\n")
     print("Atbash Ciphered Response")
 
-    uppercase_shift = ord("A")
-    lowercase_shift = ord("a")
-    shifted_upper_z = ord("Z") - uppercase_shift
-    shifted_lower_z = ord("z") - lowercase_shift
+    uppercase_shift = ord("A") #65
+    lowercase_shift = ord("a") #97
+    shifted_upper_z = ord("Z") - uppercase_shift #97-65 = 25
+    shifted_lower_z = ord("z") - lowercase_shift #122 - 97 = 25
 
     result_string = ""
     for l in text:

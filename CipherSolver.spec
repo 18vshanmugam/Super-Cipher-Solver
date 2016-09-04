@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['CipherSolver.py'],
-             pathex=['C:\\Users\\Iam\\PycharmProjects\\untitled'],
+             pathex=['E:\\Repositories\\Super-Cipher-Solver'],
              binaries=None,
              datas=None,
              hiddenimports=[],

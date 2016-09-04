@@ -1,8 +1,9 @@
 import CaesarCipher as c
 import Atbash as a
 import AsciiValues as av
+import Base64Solver as b
 
-def try_solve(text, allTests, caesar, RSA, base64, atbash):
+def try_solve(text, allTests, caesar, RSA, base64, atbash, ascii):
     solved = []
 
     text_type = input_is_num_or_hex(text)       # to avoid redundant checks i.e. testing a number for caesar shifts
@@ -13,19 +14,20 @@ def try_solve(text, allTests, caesar, RSA, base64, atbash):
         if atbash or allTests:
             solved.append(a.solveAtbashCipher(text))
 
-    if text_type == "n" or text_type == "h":
+    if ascii or allTests:
         solved.append(av.solveAsciiValues(text, text_type))
 
-    if len(solved) == 0 or solved[0] is None:
-        print("""\n \tWe couldn't solve %s :(  We may not currently support the ciphertype that encrypts your message,
-        or the translated message may not have appeared in our dictionary. If this is the case, you can check all of the
-        output above to check if your solution was generated.""" % text)
+    if base64 or allTests:
+        solved.append(b.solvebase64values(text))
 
+#    if len(solved) == 0:
+        #print("""\n \tWe couldn't solve %s :(  We may not currently support the ciphertype that encrypts your message,
+        #or the translated message may not have appeared in our dictionary. If this is the case, you can check all of the
+        #output above to check if your solution was generated.""" % text)
 
-    else:
         print("""\n\n\tAll likely solutions to the inputted text:
 ________________________________________________
-        """)
+            """)
         for s in solved:
             print("\t" + str(s))
         print("________________________________________________")
